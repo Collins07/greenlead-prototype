@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const progressBar = document.getElementById('progress-bar');
   const reportBtn = document.getElementById('report-btn');
   const reportForm = document.getElementById('report-form');
+
   let currentSectionIndex = 0;
 
 
@@ -101,7 +102,14 @@ document.addEventListener("DOMContentLoaded", function() {
       wasteAmount2: document.getElementById('waste-amount2').value,
       landUse: document.getElementById('land-use').value,
       compliance: document.getElementById('compliance').value,
-      complianceDescription: document.getElementById('non-compliance-description').value
+      complianceDescription: document.getElementById('non-compliance-description').value,
+      employees20_30: document.getElementById('employees20-30').value,
+      employees31_40: document.getElementById('employees31-40').value,
+      employees41_50: document.getElementById('employees41-50').value,
+      employees51_60: document.getElementById('employees51-60').value,
+      employees61plus: document.getElementById('employees61plus').value,
+      maleEmployees: document.getElementById('male-employees').value,
+      femaleEmployees: document.getElementById('female-employees').value
     };
 
     // Process form data
@@ -222,10 +230,7 @@ if (source1 === "non-renewable" && source2 === "non-renewable") {
   }
 }
 
-// Log the values for debugging
-console.log('energyConsumptionNonRenewable1:', energyConsumptionNonRenewable1);
-console.log('energyConsumptionNonRenewable2:', energyConsumptionNonRenewable2);
-console.log('nonRenewableEnergyTotal:', nonRenewableEnergyTotal);
+
 
 
 // Create a pie chart for source of energy
@@ -252,7 +257,6 @@ const pieChart = new Chart(ctxPie, {
     // Remove yAxes configuration
   }
 });
-
 
 
 
@@ -290,6 +294,92 @@ const pieChart = new Chart(ctxPie, {
         }
       }
     });
+
+
+ 
+      // Get the number of employees for each age group
+      const employees20_30 = parseInt(document.getElementById('employees20-30').value);
+      const employees31_40 = parseInt(document.getElementById('employees31-40').value);
+      const employees41_50 = parseInt(document.getElementById('employees41-50').value);
+      const employees51_60 = parseInt(document.getElementById('employees51-60').value);
+      const employees61plus = parseInt(document.getElementById('employees61plus').value);
+  
+      // Calculate total number of employees
+      const totalEmployees = employees20_30 + employees31_40 + employees41_50 + employees51_60 + employees61plus;
+  
+     // Create a polar chart for age distribution
+    const ctxPolarEmployees = document.getElementById('polarChart').getContext('2d');
+    const polarChartEmployees = new Chart(ctxPolarEmployees, {
+        type: 'polarArea',
+        data: {
+            labels: ['20-30 years', '31-40 years', '41-50 years', '51-60 years', '61+ years'],
+            datasets: [{
+                label: 'Number of Employees',
+                data: [employees20_30, employees31_40, employees41_50, employees51_60, employees61plus],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    suggestedMin: 0
+                }
+            }
+        }
+    });
+
+
+
+    // Get the number of male and female employees
+    const maleEmployees = parseInt(document.getElementById('male-employees').value);
+    const femaleEmployees = parseInt(document.getElementById('female-employees').value);
+
+    // Create a doughnut chart for gender distribution
+    const ctxDoughnutEmployees = document.getElementById('doughnutChart').getContext('2d');
+    const doughnutChartEmployees = new Chart(ctxDoughnutEmployees, {
+        type: 'doughnut',
+        data: {
+            labels: ['Male Employees', 'Female Employees'],
+            datasets: [{
+                label: 'Gender Distribution',
+                data: [maleEmployees, femaleEmployees],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            cutout: '80%',
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+
+  
 
     // Display non-graphical data as paragraphs above the charts
     const nonGraphicalDataContainer = document.getElementById('non-graphical-data');
