@@ -8,19 +8,19 @@ function generateReport() {
     var outputElement = document.getElementById('output');
 
     // Check if the selected reference is "GRI standards" and user input contains "company x"
-    if (selectedReference === 'GRI standards' && userInput.includes('company x')) {
+    if (selectedReference === 'GRI standards' && userInput.includes('founders factory africa')) {
         var response = `
-            <strong>Company X Sustainability Report - Environmental Performance</strong>
+            <strong>Founders Factory Africa Sustainability Report - Environmental Performance</strong>
             <br><br>
             <strong>Reporting Period:</strong> January 1, 2023 - December 31, 2023
             <br><br>
             <strong>1. Overview:</strong>
             <ul>
-                <li>Company X is committed to sustainable practices, striving for environmental responsibility across its operations.</li>
+                <li>Founders Factory Africa is committed to sustainable practices, striving for environmental responsibility across its operations.</li>
             </ul>
             <strong>2. Governance:</strong>
             <ul>
-                <li>Company X's board oversees environmental policies, ensuring compliance with regulations. The Environmental Management Team monitors and updates protocols.</li>
+                <li>Founders Factory Africa's board oversees environmental policies, ensuring compliance with regulations. The Environmental Management Team monitors and updates protocols.</li>
             </ul>
             <strong>3. Environmental Policy:</strong>
             <ul>
@@ -53,15 +53,15 @@ function generateReport() {
     }
 
     // Check if the selected reference is "Kenya’s National Climate Change Action Plan" and user input contains "company x"
-    else if (selectedReference === "Kenya’s National Climate Change Action Plan" && userInput.includes('company x')) {
+    else if (selectedReference === "Kenya’s National Climate Change Action Plan" && userInput.includes('founders factory africa')) {
         var response = `
-            <strong>Company X Sustainability Report - Kenya Climate Action Plan Compliance</strong>
+            <strong>Founders Factory Africa Sustainability Report - Kenya Climate Action Plan Compliance</strong>
             <br><br>
             <strong>Reporting Period:</strong> January 1, 2023 - December 31, 2023
             <br><br>
             <strong>1. Overview:</strong>
             <ul>
-                <li>Company X is committed to aligning its operations with Kenya's National Climate Change Action Plan, contributing to the country's climate resilience and sustainable development goals.</li>
+                <li>Founders Factory Africa is committed to aligning its operations with Kenya's National Climate Change Action Plan, contributing to the country's climate resilience and sustainable development goals.</li>
             </ul>
             <strong>2. Kenya Climate Action Plan Compliance:</strong>
             <br>
