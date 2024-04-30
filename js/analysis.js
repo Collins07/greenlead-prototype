@@ -8,7 +8,7 @@ function generateReport() {
     var outputElement = document.getElementById('output');
 
     // Check if the selected reference is "GRI standards" and user input contains "company x"
-    if (selectedReference === 'GRI standards' && userInput.includes('founders factory africa')) {
+    if (selectedReference === 'GRI standards' && (userInput.toLowerCase().includes('founders factory') || userInput.toLowerCase().includes('founders factory africa'))) {
         var response = `
             <strong>Founders Factory Africa Sustainability Report - Environmental Performance</strong>
             <br><br>
@@ -53,7 +53,7 @@ function generateReport() {
     }
 
     // Check if the selected reference is "Kenya’s National Climate Change Action Plan" and user input contains "company x"
-    else if (selectedReference === "Kenya’s National Climate Change Action Plan" && userInput.includes('founders factory africa')) {
+    else if (selectedReference === "Kenya’s National Climate Change Action Plan" && (userInput.toLowerCase().includes('founders factory') || userInput.toLowerCase().includes('founders factory africa'))) {
         var response = `
             <strong>Founders Factory Africa Sustainability Report - Kenya Climate Action Plan Compliance</strong>
             <br><br>
